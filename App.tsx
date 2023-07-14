@@ -31,6 +31,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import MainScreen from "./src/containers/MainScreen"
 import AppTitleBar from "./src/components/AppTitleBar"
 import AppDrawer from "./src/components/AppDrawer"
+import AddNoteButton from "./src/components/AddNoteButton"
 
 
 const Drawer = createDrawerNavigator()
@@ -55,6 +56,7 @@ function App(): JSX.Element {
        >
           <Drawer.Screen name="Home" component={MainScreen} />
       </Drawer.Navigator>
+      <AddNoteButton/>
     </>
   );
 }

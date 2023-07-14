@@ -1,4 +1,4 @@
-import {View, FlatList, StyleSheet, Dimensions} from "react-native"
+import {View, FlatList, StyleSheet, Dimensions, SafeAreaView} from "react-native"
 
 import Note from "../components/Note"
 
@@ -8,13 +8,13 @@ const windowHeight = Dimensions.get("window").height
 
 const MainScreen = (props) => {
     return (
-        <View style={styles.mainContainer}>
+        <SafeAreaView style={styles.mainContainer}>
             <FlatList
                 data={NOTES}
                 renderItem={() => <Note/>}
                 contentContainerStyle={{ paddingBottom: 200 }}
             />
-        </View>
+        </SafeAreaView>
 
     )
 }

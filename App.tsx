@@ -28,10 +28,13 @@ import {
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import MainScreen from "./src/containers/MainScreen"
 import AppTitleBar from "./src/components/AppTitleBar"
+import NoteInputBar from "./src/components/NoteInputBar"
 import AppDrawer from "./src/components/AppDrawer"
 import AddNoteButton from "./src/components/AddNoteButton"
+
+import MainScreen from "./src/containers/MainScreen"
+import NoteInputScreen from "./src/containers/NoteInputScreen"
 
 
 const Drawer = createDrawerNavigator()
@@ -51,12 +54,20 @@ function App(): JSX.Element {
       />
       <Drawer.Navigator
         initialRouteName="Home"
-        screenOptions={{header: (props) => <AppTitleBar {...props}/>}}
         drawerContent={AppDrawer}
        >
-          <Drawer.Screen name="Home" component={MainScreen} />
+          <Drawer.Screen
+            name="Home"
+            component={MainScreen}
+            options={{header: (props) => <AppTitleBar {...props}/>}}
+          />
+          <Drawer.Screen
+            name="Input"
+            component={NoteInputScreen}
+            options={{header: (props) => <NoteInputBar {...props}/>}}
+          />
       </Drawer.Navigator>
-      <AddNoteButton/>
+      <AddNoteButton />
     </>
   );
 }

@@ -1,17 +1,19 @@
 import {View, FlatList, StyleSheet, Dimensions, SafeAreaView} from "react-native"
+import {useSelector} from "react-redux"
 
 import Note from "../components/Note"
-
-const NOTES = [0, 1, 2, 1,1,1,1,1] // TODO: Link to redux state
 
 const windowHeight = Dimensions.get("window").height
 
 const MainScreen = (props) => {
+
+    const NOTES = useSelector(state => state.notes.value)
+
     return (
         <SafeAreaView style={styles.mainContainer}>
             <FlatList
                 data={NOTES}
-                renderItem={() => <Note/>}
+                renderItem={({item}) => <Note title={item.title} content={item.content} id={item.id} key={item.id}/>}
                 contentContainerStyle={{ paddingBottom: 200 }}
             />
         </SafeAreaView>

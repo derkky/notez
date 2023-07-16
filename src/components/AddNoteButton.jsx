@@ -1,18 +1,16 @@
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { FAB } from 'react-native-paper';
-import {useEffect } from "react"
+import { useNavigation } from '@react-navigation/native';
 
 
 const AddNoteButton = (props) => {
 
-    useEffect(() => {
-        console.log("mounted")
-    }, [])
+    const navigation = useNavigation()
 
     return(
       <FAB
         style={styles.fab}
-        onPress={() => console.log('Pressed')}
+        onPress={() => navigation.navigate("Input")}
         icon="plus"
       />
     )

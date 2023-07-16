@@ -20,11 +20,12 @@ const AppDrawer = (props) => {
           value={"test"}
         />
       </View>
-      <DrawerItemList {...props} />
+
       <DrawerItem
-        label="Help"
-        onPress={() => {}}
+        label="Home"
+        onPress={() => {props.navigation.navigate("Home")}}
       />
+
     </DrawerContentScrollView>
   );
 }

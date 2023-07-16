@@ -1,15 +1,22 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
+import { useNavigation } from '@react-navigation/native';
 
 const Note = (props) => {
+
+    const navigation = useNavigation()
+    const handlePress = () => {
+        navigation.navigate("Input", {title: props.title, content: props.content, id: props.id})
+    }
+
     return (
-        <View style={styles.note}>
+        <TouchableOpacity style={styles.note} onPress={handlePress }>
             <Text style={styles.title}>
-                This is a note
+                {props.title}
             </Text>
             <Text>
-                Lorem ipsum
+                {props.content}
             </Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 

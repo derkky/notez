@@ -8,7 +8,14 @@ import {Searchbar} from "react-native-paper"
 
 import {View, StyleSheet} from "react-native"
 
+import {useSelector} from "react-redux"
+
+// todo get categories here
+
 const AppDrawer = (props) => {
+
+  const categories = useSelector(state => state.categories.value)
+
   return (
     <DrawerContentScrollView {...props}>
       <View
@@ -25,6 +32,13 @@ const AppDrawer = (props) => {
         label="Home"
         onPress={() => {props.navigation.navigate("Home")}}
       />
+      {categories.map(cat => (
+          <DrawerItem
+            label={cat.category}
+            onPress={() => {props.navigation.navigate("Home", {category: cat.category})}}
+            key={cat.category}
+          />
+      ))}
 
     </DrawerContentScrollView>
   );

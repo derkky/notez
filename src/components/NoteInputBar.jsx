@@ -9,8 +9,8 @@ const NoteInputBar = (props) => {
     const noteInput = useSelector(state => state.noteInput.value)
 
     const handleDone = () => {
-        dispatch(upsertNote({title: noteInput.title, content: noteInput.content, id: noteInput.id}))
-        props.navigation.goBack()
+        dispatch(upsertNote({title: noteInput.title, content: noteInput.content, id: noteInput.id, category: noteInput.category}))
+        props.navigation.navigate("Home")
     }
 
     return (
